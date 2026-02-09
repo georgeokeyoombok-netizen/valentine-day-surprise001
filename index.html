@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day, Eusaviah Alice!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #ffeff6;
+            color: #5a003a;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #ff7eb3, #ff758c);
+            border-radius: 0 0 40px 40px;
+            box-shadow: 0 10px 30px rgba(255, 0, 85, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hearts-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.3;
+        }
+        
+        .heart {
+            position: absolute;
+            color: #fff;
+            font-size: 24px;
+            animation: float 6s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            color: white;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+            margin-bottom: 15px;
+        }
+        
+        .subtitle {
+            font-size: 1.8rem;
+            color: #fff0f5;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+        
+        .name-highlight {
+            background-color: rgba(255, 255, 255, 0.3);
+            padding: 5px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #5a003a;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 50px 20px;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(255, 0, 85, 0.1);
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 0, 85, 0.15);
+        }
+        
+        .card h2 {
+            color: #ff4081;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card h2 i {
+            color: #ff4081;
+        }
+        
+        .message-card {
+            border-top: 8px solid #ff7eb3;
+        }
+        
+        .memory-card {
+            border-top: 8px solid #ff758c;
+        }
+        
+        .message-text {
+            line-height: 1.8;
+            font-size: 1.2rem;
+            text-align: justify;
+        }
+        
+        .memory-text {
+            line-height: 1.6;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .gallery-item {
+            height: 150px;
+            background-color: #ffeff6;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff4081;
+            font-size: 2.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            background-color: #ffd6e6;
+            transform: scale(1.05);
+        }
+        
+        /* Friendship Metrics */
+        .metrics {
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 800px;
+            box-shadow: 0 10px 30px rgba(255, 0, 85, 0.1);
+        }
+        
+        .metrics h2 {
+            text-align: center;
+            color: #ff4081;
+            margin-bottom: 30px;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .metric-item {
+            text-align: center;
+            padding: 20px;
+            background-color: #ffeff6;
+            border-radius: 15px;
+        }
+        
+        .metric-value {
+            font-size: 2.5rem;
+            color: #ff4081;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            color: white;
+            margin-top: auto;
+            border-radius: 40px 40px 0 0;
+        }
+        
+        .valentine-wish {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .signature {
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-top: 20px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .main-content {
+                padding: 30px 10px;
+            }
+            
+            .card {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="hearts-bg" id="heartsContainer"></div>
+        <div class="container header-content">
+            <h1>Happy Valentine's Day!</h1>
+            <p class="subtitle">A special message for someone very dear to me</p>
+            <div class="name-highlight">
+                <i class="fas fa-heart"></i> To Eusaviah Alice <i class="fas fa-heart"></i>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container main-content">
+        <div class="card message-card">
+            <h2><i class="fas fa-heart"></i> My Valentine's Message</h2>
+            <div class="message-text">
+                <p>Dear Eusaviah Alice,</p>
+                <p>On this Valentine's Day, I want to take a moment to tell you how incredibly grateful I am to have you as my best friend. You bring so much joy, laughter, and light into my life every single day.</p>
+                <p>Our friendship is one of the most precious things I have, and I cherish all the moments we've shared together. Through ups and downs, you've always been there, and that means the world to me.</p>
+                <p>You're not just my best friend; you're family. And today, I want to celebrate you and our amazing bond. Thank you for being you!</p>
+            </div>
+        </div>
+        
+        <div class="card memory-card">
+            <h2><i class="fas fa-star"></i> Friendship Memories</h2>
+            <div class="memory-text">
+                <p>Thinking of all the wonderful memories we've created together:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Our endless conversations about everything and nothing</li>
+                    <li>All the laughter we've shared (even at the silliest things)</li>
+                    <li>Being there for each other during tough times</li>
+                    <li>Celebrating each other's successes and milestones</li>
+                    <li>Creating inside jokes that only we understand</li>
+                </ul>
+            </div>
+            <div class="gallery">
+                <div class="gallery-item"><i class="fas fa-grin-squint-tears"></i></div>
+                <div class="gallery-item"><i class="fas fa-mug-hot"></i></div>
+                <div class="gallery-item"><i class="fas fa-music"></i></div>
+                <div class="gallery-item"><i class="fas fa-film"></i></div>
+                <div class="gallery-item"><i class="fas fa-heart"></i></div>
+                <div class="gallery-item"><i class="fas fa-hands-helping"></i></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="metrics">
+            <h2><i class="fas fa-chart-pie"></i> Our Friendship Metrics</h2>
+            <div class="metrics-grid">
+                <div class="metric-item">
+                    <div class="metric-value">100%</div>
+                    <div class="metric-label">Trust & Loyalty</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value">∞</div>
+                    <div class="metric-label">Laughter Shared</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value">24/7</div>
+                    <div class="metric-label">Support System</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value">1000+</div>
+                    <div class="metric-label">Memories Created</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="valentine-wish">
+                Wishing you a Valentine's Day filled with love, happiness, and all the things that bring you joy!
+            </div>
+            <p>You deserve the world and more, today and every day.</p>
+            <div class="signature">
+                With all my love,<br>
+                Your Best Friend ❤️
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Create floating hearts background
+        function createHearts() {
+            const heartsContainer = document.getElementById('heartsContainer');
+            const heartCount = 25;
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤️';
+                
+                // Random position
+                const left = Math.random() * 100;
+                const top = Math.random() * 100;
+                const delay = Math.random() * 5;
+                const duration = 3 + Math.random() * 4;
+                
+                heart.style.left = `${left}%`;
+                heart.style.top = `${top}%`;
+                heart.style.animationDelay = `${delay}s`;
+                heart.style.animationDuration = `${duration}s`;
+                
+                // Random size
+                const size = 20 + Math.random() * 30;
+                heart.style.fontSize = `${size}px`;
+                
+                // Random opacity
+                const opacity = 0.3 + Math.random() * 0.7;
+                heart.style.opacity = opacity;
+                
+                heartsContainer.appendChild(heart);
+            }
+        }
+        
+        // Change color of heart icons on click
+        function setupInteractiveHearts() {
+            const hearts = document.querySelectorAll('.gallery-item, .heart');
+            const colors = ['#ff4081', '#ff7eb3', '#ff758c', '#ff4d94', '#ff85a2'];
+            
+            hearts.forEach(heart => {
+                heart.addEventListener('click', function() {
+                    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                    this.style.color = randomColor;
+                    this.style.transform = this.classList.contains('heart') 
+                        ? 'scale(1.3)' 
+                        : 'scale(1.1)';
+                    
+                    setTimeout(() => {
+                        this.style.transform = this.classList.contains('heart') 
+                            ? '' 
+                            : 'scale(1.05)';
+                    }, 300);
+                });
+            });
+        }
+        
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            createHearts();
+            setupInteractiveHearts();
+            
+            // Add a surprise Valentine's message
+            setTimeout(() => {
+                alert("💖 Just a reminder: You're an amazing friend, Eusaviah Alice! Happy Valentine's Day! 💖");
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
